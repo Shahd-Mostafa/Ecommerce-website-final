@@ -1,0 +1,130 @@
+<div class="bg text-center py-5 my-5">
+  <i class="fa-solid fa-cart-shopping"></i>
+  <h1 class="fw-semibold pb-2 mt-3 mb-3">My Cart</h1>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-9">
+        <div
+          class="d-flex justify-content-center align-items-center flex-column w-100"
+        >
+          <div
+            class="d-flex justify-content-between align-items-center w-100 pb-2"
+          >
+            <h5 class="mb-1 text-start fw-semibold h4">
+              Total Items (<span>{{ cart.numOfCartItems }}</span
+              >)
+            </h5>
+            <button class="btn checkout text-white" (click)="clearCart()">
+              Clear Cart
+            </button>
+          </div>
+          <div class="uk-overflow-auto uk-table-hover rounded-3 h-100 w-100">
+            <table
+              class="uk-table uk-table-divider bg-body-tertiary rounded-3 uk-table-responsive"
+            >
+              <thead>
+                <tr>
+                  <th class="uk-table-expand">Product Picture</th>
+                  <th>Product Name</th>
+                  <th>Unit Price</th>
+                  <th>Stock Status</th>
+                  <th>Quantity</th>
+                  <th></th>
+                </tr>
+              </thead>
+              @for(item of cartDetails.products; track item.product.id){
+              <tbody>
+                <tr>
+                  <td class="img-w">
+                    <img
+                      [src]="item.product.imageCover"
+                      [alt]="
+                        item.product.title.split(' ').slice(0, 2).join(' ')
+                      "
+                      class="img-fluid object-fit-cover rounded-3 w-100 h-auto"
+                    />
+                  </td>
+                  <td class="name text-capitalize">
+                    <p>
+                      {{ item.product.title.split(" ").slice(0, 2).join(" ") }}
+                    </p>
+                  </td>
+                  <td class="price">
+                    <p>{{ item.price }} EGP</p>
+                  </td>
+                  <td class="stock fw-medium"><p>In Stock</p></td>
+                  <td class="uk-table-expand">
+                    <div
+                      class="d-flex justify-content-center align-items-center rounded-3"
+                    >
+                      <button
+                        class="minus border-0 rounded-3 px-2"
+                        (click)="updateCount(item.product.id, item.count - 1)"
+                      >
+                        <i class="fa-solid fa-minus"></i>
+                      </button>
+                      <p class="px-3">{{ item.count }}</p>
+                      <button
+                        class="plus border-0 rounded-3 px-2"
+                        (click)="updateCount(item.product.id, item.count + 1)"
+                      >
+                        <i class="fa-solid fa-plus"></i>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <a
+                      class="remove text-danger fw-medium px-3 py-2 rounded-3"
+                      (click)="removeItem(item.product.id)"
+                      ><i class="fa-regular fa-trash-can fa-lg pe-2"></i
+                      >Remove</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+              }
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="order-summary bg-body-tertiary w-100 p-3 rounded-3">
+          <h3 class="fw-semibold">Order Summary</h3>
+          <div class="d-flex justify-content-end align-items-center">
+            <input
+              class="form-control p-2 position-relative border-0 coup"
+              placeholder="Coupon Code"
+            />
+            <button
+              class="btn position-absolute px-3 coup-btn text-white"
+              type="submit"
+            >
+              Apply
+            </button>
+          </div>
+          <div
+            class="shipping d-flex justify-content-between align-items-center mt-4 text-body-tertiary"
+          >
+            <span class="fs-6">Shipping Fee</span>
+            <span class="free fw-semibold fs-6">Free</span>
+          </div>
+          <div
+            class="total border-top d-flex justify-content-between align-items-center align-middle mt-2 pt-1"
+          >
+            <h4 class="mb-0 fw-bold d-flex align-items-center">Total</h4>
+            <span class="fw-bold">{{
+              cartDetails.totalCartPrice | currency : "EGP"
+            }}</span>
+          </div>
+          <button
+            class="btn w-100 checkout text-white mt-4"
+            [routerLink]="['/orders', cart.cartId]"
+            [disabled]="!(cartDetails.products && cartDetails.products.length)"
+          >
+            Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

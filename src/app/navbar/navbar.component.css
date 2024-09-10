@@ -1,0 +1,27 @@
+.nav-link {
+  font-size: 0.9375rem;
+}
+.badge {
+  background-color: #87a054;
+  transition: all 0.3s ease;
+}
+.nav-link {
+  transition: all 0.3s ease;
+}
+.nav-link:hover {
+  color: #87a054;
+  transform: scale(1.1);
+}
+.nav-link:hover .badge {
+  background-color: #495a28;
+}
+.active {
+  color: #87a054 !important;
+  font-weight: 500;
+}
+.badge-active {
+  background-color: #495a28 !important;
+}
+/* .navbar-brand {
+  font-family: "Raleway", sans-serif;
+} */

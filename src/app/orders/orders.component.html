@@ -1,0 +1,49 @@
+<div class="bg py-4 vh-100 d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div
+      class="d-flex justify-content-center align-items-center flex-column mx-auto w-50 bg-body-tertiary rounded-3 p-4"
+    >
+      <h2 class="text-center fw-medium">Adress Details</h2>
+      <form [formGroup]="orders" class="w-100" (ngSubmit)="orderSubmit()">
+        <div class="inputs">
+          <div class="mb-2">
+            <label for="details" class="pb-1">Details</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="details"
+              name="AddressDetails"
+              formControlName="details"
+            ></textarea>
+          </div>
+          <div class="mb-2">
+            <label for="phone" class="pb-1">Phone</label>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              name="AddressPhone"
+              placeholder="01025055033"
+              formControlName="phone"
+            />
+          </div>
+          <div class="mb-4">
+            <label for="city" class="pb-1">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              name="AddressCity"
+              placeholder="Tanta"
+              maxlength="30"
+              formControlName="city"
+            />
+          </div>
+        </div>
+        <button class="btn btn-close-white w-100" [disabled]="orders.invalid">
+          Pay Now
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

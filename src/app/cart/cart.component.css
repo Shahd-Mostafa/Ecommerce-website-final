@@ -1,0 +1,75 @@
+.bg {
+  height: 100vh;
+}
+::placeholder {
+  font-size: 0.875rem;
+  padding-left: 7px;
+}
+h1,
+h3 {
+  /* font-family: "Raleway", sans-serif; */
+  color: #87a054;
+}
+h4,
+h5 {
+  color: rgb(64, 69, 83);
+}
+table {
+  background-color: #dfdfde !important;
+}
+.fa-cart-shopping {
+  font-size: 60px;
+  color: #87a054;
+}
+
+th {
+  text-align: center;
+  vertical-align: middle !important;
+}
+td {
+  vertical-align: middle !important;
+}
+.img-w {
+  width: 100px;
+  max-width: 100%;
+  height: auto;
+}
+.stock {
+  color: #87a054;
+}
+.add {
+  background-color: #87a054;
+}
+.add:hover {
+  background-color: #495a28;
+}
+.remove:hover {
+  background-color: rgb(220, 53, 69);
+  color: white !important;
+}
+.coup-btn {
+  background-color: #87a054;
+}
+.coup-btn:hover {
+  background-color: #495a28;
+}
+.coup {
+  border: none;
+}
+.coup:focus {
+  border: none;
+  outline: none;
+  box-shadow: none !important;
+}
+.free {
+  color: #87a054;
+}
+.total span {
+  color: rgb(64, 69, 83);
+}
+.checkout {
+  background-color: #87a054;
+}
+.checkout:hover {
+  background-color: #495a28;
+}

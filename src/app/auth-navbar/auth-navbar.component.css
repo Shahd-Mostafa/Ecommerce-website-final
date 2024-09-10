@@ -1,0 +1,22 @@
+/* .navbar-brand {
+  font-family: "Raleway", sans-serif;
+} */
+.nav-link {
+  /* font-family: "Raleway", sans-serif; */
+  color: black;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.nav-item {
+  transition: all 0.3s ease;
+}
+.nav-item:hover {
+  background-color: #495a28;
+}
+.nav-item:hover .nav-link {
+  color: white;
+}
+.nav-link.active {
+  background-color: #495a28 !important;
+  color: white !important;
+}

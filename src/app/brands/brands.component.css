@@ -1,0 +1,40 @@
+.bg {
+  background-color: #dfdfde;
+  min-height: 100vh;
+  width: 100%;
+}
+h2 {
+  /* font-family: "Raleway", sans-serif; */
+  color: #2e261a;
+}
+.card {
+  height: 250px;
+  cursor: pointer;
+  perspective: 800px;
+  max-width: 100%;
+  background-color: transparent;
+}
+.text {
+  color: #87a054;
+  /* font-family: "Raleway", sans-serif; */
+}
+.card-inner {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 0px 20px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transform-style: preserve-3d;
+}
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+.card-img,
+.card-body {
+  backface-visibility: hidden;
+}
+.card-body {
+  transform: rotateY(180deg);
+}
+.modal h1 {
+  /* font-family: "Raleway", sans-serif; */
+  color: #87a054;
+}

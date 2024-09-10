@@ -1,0 +1,94 @@
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col-md-5 p-0">
+      <div
+        class="d-flex justify-content-center align-items-center flex-column vh-100 w-50 mx-auto"
+      >
+        <h2 class="h1 fw-medium text-center">Welcome Back!</h2>
+        <p class="text-body-tertiary mx-0 mt-0 mb-4">Login to your account</p>
+        <form
+          [formGroup]="SignInForm"
+          (ngSubmit)="signInSubmit()"
+          class="w-100"
+        >
+          <div class="inputs">
+            <div class="mb-3">
+              <label for="email" class="pb-1">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                name="LoginEmail"
+                placeholder="name@example.com"
+                formControlName="email"
+              />
+              @if(SignInForm.get('email')?.errors &&
+              SignInForm.get('email')?.touched) {
+              <div class="warnings">
+                @if(SignInForm.get('email')?.getError('required')){
+                <p>Email is required</p>
+                } @else if (SignInForm.get('email')?.getError('email')) {
+                <p>Enter Valid Email</p>
+                }
+              </div>
+              }
+            </div>
+            <div class="mb-3">
+              <label for="password" class="pb-1">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="LoginPassword"
+                formControlName="password"
+              />
+              @if(SignInForm.get('password')?.errors &&
+              SignInForm.get('password')?.touched) {
+              <div class="warnings">
+                @if(SignInForm.get('password')?.getError('required')){
+                <p>Password is required</p>
+                }@else if (SignInForm.get('password')?.getError('pattern')) {
+                <p>must be at least 6 chars</p>
+                }
+              </div>
+              }
+              <a class="text-decoration-none pass" routerLink="/forgot-password"
+                >Forgot Password?</a
+              >
+            </div>
+          </div>
+          <button
+            class="btn btn-close-white w-100 mb-3"
+            [disabled]="SignInForm.invalid || isLoading"
+          >
+            Log In @if(isLoading){
+            <span><i class="fa-solid fa-spinner fa-spin ps-1"></i></span>
+            }
+          </button>
+          <div
+            class="login-options d-flex justify-content-center align-items-center flex-column w-100 pt-3"
+          >
+            <h6
+              class="position-relative fw-normal d-flex justify-content-center align-items-center pb-1"
+            >
+              or log in with
+            </h6>
+            <button class="btn btn-close-white google-b w-100">
+              <a href="https://www.google.com/" target="_blank">
+                <img
+                  src="./assets/google icon.png"
+                  class="icon me-1"
+                  alt="..."
+                />
+                Google</a
+              >
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-md-7 p-0">
+      <div class="bg w-100"></div>
+    </div>
+  </div>
+</div>

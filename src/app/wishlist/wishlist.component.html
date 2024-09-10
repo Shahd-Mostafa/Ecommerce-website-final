@@ -1,0 +1,53 @@
+<div class="bg text-center py-5 my-5">
+  <i class="fa-regular fa-heart"></i>
+  <h1 class="fw-semibold pb-2 mt-3 mb-4">My Wishlist</h1>
+  <div class="container">
+    <table
+      class="uk-table uk-table-hover uk-table-divider bg-body-tertiary rounded-3"
+    >
+      <thead>
+        <tr>
+          <th></th>
+          <th>Product Picture</th>
+          <th>Product Name</th>
+          <th>Unit Price</th>
+          <th>Stock Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      @for(wish of wishlistDetails ;track wish.id){
+      <tbody>
+        <tr>
+          <td>
+            <a
+              (click)="removeWishlistItem(wish.id)"
+              class="remove text-danger fw-medium px-3 py-2 rounded-3"
+              ><i class="fa-regular fa-trash-can fa-lg pe-2"></i>Remove</a
+            >
+          </td>
+          <td class="img-w">
+            <img
+              [src]="wish.imageCover"
+              [alt]="wish.title.split(' ').slice(0, 2).join(' ')"
+              class="img-fluid object-fit-cover rounded-3"
+            />
+          </td>
+          <td class="name text-capitalize">
+            {{ wish.title.split(" ").slice(0, 2).join(" ") }}
+          </td>
+          <td class="price">{{ wish.price }} EGP</td>
+          <td class="stock fw-medium">In Stock</td>
+          <td>
+            <button
+              class="btn px-4 py-2 rounded-pill text-white"
+              (click)="addCart(wish.id)"
+            >
+              <i class="fa-solid fa-plus pe-2"></i>Add To Cart
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      }
+    </table>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+h2 {
+  color: #87a054;
+  /* font-family: "Raleway", sans-serif !important; */
+}
+/* p {
+  font-family: "Raleway", sans-serif !important;
+} */
+.uk-panel {
+  cursor: pointer;
+}
+img {
+  min-height: 100%;
+  object-fit: cover;
+}

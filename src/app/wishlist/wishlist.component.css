@@ -1,0 +1,39 @@
+.bg {
+  height: 100vh;
+}
+h1 {
+  /* font-family: "Raleway", sans-serif; */
+  color: #87a054;
+}
+table {
+  background-color: #dfdfde !important;
+}
+.fa-heart {
+  font-size: 60px;
+  color: #87a054;
+}
+
+th {
+  text-align: center;
+}
+td {
+  font-size: 1.0625rem;
+  vertical-align: middle;
+}
+.img-w {
+  width: 150px;
+  height: 150px;
+}
+.stock {
+  color: #87a054;
+}
+button {
+  background-color: #87a054;
+}
+button:hover {
+  background-color: #495a28;
+}
+.remove:hover {
+  background-color: rgb(220, 53, 69);
+  color: white !important;
+}

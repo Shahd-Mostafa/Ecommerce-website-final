@@ -1,0 +1,76 @@
+<div class="bg">
+  <div class="container py-5 mt-4">
+    <h2 class="py-4 text-center h1 fw-semibold">All Brands</h2>
+    <div class="row gy-3">
+      @for(brand of brandsList ;track brand._id){
+      <div
+        class="col-md-4"
+        data-bs-toggle="modal"
+        (click)="openModal(brand)"
+        data-bs-target="#exampleModal"
+      >
+        <div class="card p-0 rounded-3">
+          <div class="card-inner position-relative w-100 h-100 rounded-3">
+            <div class="card-img position-absolute h-100 w-100">
+              <img
+                [src]="brand.image"
+                class="card-img-top img-fluid w-100 h-100 object-fit-cover rounded-3"
+                [alt]="brand.name.split(' ').slice(0, 2).join(' ')"
+              />
+            </div>
+            <div
+              class="card-body position-absolute h-100 w-100 d-flex align-items-center justify-content-center bg-white rounded-3"
+            >
+              <p class="text text-capitalize text-center h2 fw-semibold">
+                {{ brand.name.split(" ").slice(0, 2).join(" ") }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6">
+                <h1>{{ selectedBrand?.name }}</h1>
+                <p>{{ selectedBrand?.name }}</p>
+              </div>
+              <div class="col-md-6">
+                <img [src]="selectedBrand?.image" alt="" class="img-fluid" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

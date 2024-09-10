@@ -1,0 +1,50 @@
+<div class="bg text-center">
+  <div class="container py-5 mt-4">
+    <h2 class="py-4 text-center h1 fw-semibold">Categories</h2>
+    <div class="row gy-3">
+      @for(category of categoriesList;track category._id){
+      <div
+        class="col-md-4"
+        (click)="revealCategories(category); getSubcategories(category._id)"
+      >
+        <div class="card p-0 rounded-3">
+          <div class="card-inner position-relative w-100 h-100 rounded-3">
+            <div class="card-img position-absolute h-100 w-100">
+              <img
+                [src]="category.image"
+                class="card-img-top img-fluid w-100 h-100 object-fit-cover rounded-3"
+                [alt]="category.name"
+              />
+            </div>
+            <div
+              class="card-body position-absolute h-100 w-100 d-flex align-items-center justify-content-center bg-white rounded-3"
+            >
+              <p class="text text-capitalize text-center h2 fw-semibold">
+                {{ category.name }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  @if(selectedCategory){
+  <div class="sub-g pt-5 mt-2">
+    <h3 class="h2 pb-2 fw-semibold">
+      <span>{{ selectedCategory.name }}</span> Subcategories
+    </h3>
+    <div class="container">
+      <div class="row">
+        @for(subcategory of subcategoriesList; track subcategory._id) {
+        <div class="col-md-4">
+          <p class="p-4 bg-white text-center rounded-3 fw-medium">
+            {{ subcategory?.name }}
+          </p>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+  }
+</div>

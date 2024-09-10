@@ -1,0 +1,95 @@
+::placeholder {
+  color: rgba(33, 37, 41, 0.5);
+  font-size: 0.875rem;
+}
+.bg {
+  background-image: url("../../assets/5.jpeg");
+  background-size: cover;
+  background-position: -160px 0px;
+  transform: scaleX(-1);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+/* h2 {
+  font-family: "Raleway", sans-serif;
+} */
+input {
+  border: 1px solid #87a054 !important;
+}
+input:focus {
+  box-shadow: 0 0 0 0.25rem rgb(135, 160, 84, 0.25);
+}
+.pass {
+  font-size: 0.8125rem;
+  color: rgb(135, 160, 84);
+}
+.pass:hover {
+  color: #495a28;
+}
+button {
+  background-color: #87a054;
+  border: none;
+  color: white !important;
+}
+button:hover {
+  background-color: #495a28 !important;
+  color: white !important;
+}
+button:disabled {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+.google-b {
+  background-color: transparent !important;
+  border: 1px solid #87a054;
+}
+.google-b a {
+  color: black;
+  transition: 0.2s ease;
+}
+.google-b:hover a {
+  color: white;
+}
+.icon {
+  width: 25px;
+  height: 25px;
+}
+.login-options h6:before {
+  content: "";
+  position: absolute;
+  left: -110%;
+  width: 100%;
+  height: 2px;
+  background-color: #87a054;
+}
+.login-options h6:after {
+  content: "";
+  position: absolute;
+  right: -110%;
+  width: 100%;
+  height: 2px;
+  background-color: #87a054;
+}
+h6 {
+  font-size: 13px;
+}
+.nav-link {
+  color: black;
+  transition: all 0.3s ease;
+}
+.nav-item {
+  transition: all 0.3s ease;
+}
+.nav-item:hover {
+  background-color: #495a28;
+}
+.nav-item:hover .nav-link {
+  color: white;
+}
+.warnings p,
+.msg-error {
+  font-size: 12px;
+  margin: 0;
+  color: #dc3545;
+}

@@ -1,0 +1,12 @@
+.bg {
+  background-color: #dfdfde;
+}
+.add {
+  background-color: #87a054;
+}
+.add:hover {
+  background-color: rgb(73, 89, 41);
+}
+.cat-name {
+  color: #87a054;
+}

@@ -1,0 +1,80 @@
+<div class="bg">
+  <div class="container py-5 mt-4">
+    <h2 class="text-center py-4 fw-semibold h1">Our Products</h2>
+    <div class="d-flex pb-4 justify-content-end align-items-center">
+      <input
+        class="form-control p-2 position-relative border-0 rounded-pill form-control-lg"
+        type="search"
+        placeholder="What's on your mind?"
+      />
+      <button
+        class="btn position-absolute px-3 me-1 rounded-pill"
+        type="submit"
+      >
+        Search<i class="fa-solid fa-magnifying-glass ps-2"></i>
+      </button>
+    </div>
+    <div class="row">
+      @for(product of productsList ; track product.id){
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="product p-3 position-relative my-2">
+          <div
+            class="fav position-absolute z-3 end-0 top-0 bg-body-tertiary px-3 py-2"
+            (click)="
+              addWishlist(product.id); toggleWishlistIcon($event, product.id)
+            "
+          >
+            <a><i #myElement class="fa-regular fa-heart fa-lg"></i></a>
+          </div>
+          <div [routerLink]="['/details', product.id]">
+            <div class="card border-0">
+              <div class="img-frame position-absolute w-100">
+                <img
+                  [src]="product.imageCover"
+                  [alt]="product.title.split('', 2).join('')"
+                  class="img-fluid object-fit-cover w-100 h-100"
+                />
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="category text-center position-relative">
+                <span
+                  class="fw-medium position-absolute text-capitalize px-3 py-2"
+                  >{{ product.category.name }}</span
+                >
+              </div>
+              <div
+                class="title-product d-flex justify-content-center align-items-center"
+              >
+                <h3 class="mb-2 mt-4 overflow-hidden w-100">
+                  {{ product.title.split(" ").slice(0, 2).join(" ") }}
+                </h3>
+                <div
+                  class="rating d-flex justify-content-center align-items-center mb-2 mt-4"
+                >
+                  <span class="fw-medium pe-1">{{
+                    product.ratingsAverage
+                  }}</span
+                  ><i class="fa-solid fa-star" style="color: #ffd43b"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="card-footer d-flex justify-content-between align-items-center"
+          >
+            <div class="left">
+              <span class="price">{{ product.price }} EGP</span>
+            </div>
+            <div class="right d-flex gap-3" (click)="addCart(product.id)">
+              <a class="border rounded-2 p-2 bg-body-tertiary"
+                ><i class="fa-solid fa-cart-plus fa-lg"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

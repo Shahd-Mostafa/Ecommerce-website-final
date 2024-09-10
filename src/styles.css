@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "ngx-toastr/toastr";
+/* label,
+input,
+p {
+  font-family: "Poppins", sans-serif !important;
+} */
+a {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+::selection {
+  background-color: #87a054 !important;
+}
+.toast-container {
+  position: fixed !important;
+}
