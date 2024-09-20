@@ -5,7 +5,7 @@
         class="fa-solid fa-cart-shopping pe-2 fa-xl"
         style="color: #87a054"
       ></i
-      >Fresh Cart</a
+      >FreshCart</a
     >
     <button
       class="navbar-toggler"
@@ -20,17 +20,19 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav mx-auto">
-        <a class="nav-link" routerLinkActive="active" routerLink="home">Home</a>
-        <a class="nav-link" routerLinkActive="active" routerLink="wishlist"
+        <a class="nav-link" routerLinkActive="active" routerLink="/home"
+          >Home</a
+        >
+        <a class="nav-link" routerLinkActive="active" routerLink="/wishlist"
           >Wishlist</a
         >
-        <a class="nav-link" routerLinkActive="active" routerLink="products"
+        <a class="nav-link" routerLinkActive="active" routerLink="/products"
           >Products</a
         >
-        <a class="nav-link" routerLinkActive="active" routerLink="categories"
+        <a class="nav-link" routerLinkActive="active" routerLink="/categories"
           >Categories</a
         >
-        <a class="nav-link" routerLinkActive="active" routerLink="brands"
+        <a class="nav-link" routerLinkActive="active" routerLink="/brands"
           >Brands</a
         >
       </div>
@@ -38,13 +40,13 @@
         <a
           class="nav-link me-2 position-relative"
           routerLinkActive="active"
-          routerLink="cart"
+          routerLink="/cart"
           >Cart<i class="fa-solid fa-cart-shopping pe-2 fa-xl ps-2"></i>
           <div
             routerLinkActive="badge-active"
             class="badge text-white position-absolute top-0 end-0"
           >
-            1
+            {{ counter }}
           </div></a
         >
         <a class="nav-link" (click)="_AuthService.logOut()">Log Out</a>

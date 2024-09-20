@@ -1,27 +1,31 @@
+.navbar-brand {
+  font-family: var(--header-font);
+  color: var(--header-color);
+}
 .nav-link {
   font-size: 0.9375rem;
+  font-weight: 500;
+  font-family: var(--header-font);
 }
 .badge {
-  background-color: #87a054;
+  background-color: var(--main-color);
+  font-family: var(--minor-font);
   transition: all 0.3s ease;
 }
 .nav-link {
   transition: all 0.3s ease;
 }
 .nav-link:hover {
-  color: #87a054;
+  color: var(--main-color);
   transform: scale(1.1);
 }
 .nav-link:hover .badge {
   background-color: #495a28;
 }
 .active {
-  color: #87a054 !important;
-  font-weight: 500;
+  color: var(--main-color) !important;
+  font-weight: 600;
 }
 .badge-active {
   background-color: #495a28 !important;
 }
-/* .navbar-brand {
-  font-family: "Raleway", sans-serif;
-} */

@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -8,17 +8,19 @@ import {
 } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../core/services/auth.service';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-sign-in',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, NgClass],
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.css',
 })
 export class SignInComponent {
   private readonly _AuthService = inject(AuthService);
   private readonly _Router = inject(Router);
+  showPass?: boolean;
   msgError: string = '';
   isLoading: boolean = false;
   SignInForm: FormGroup = new FormGroup({
@@ -48,5 +50,8 @@ export class SignInComponent {
         },
       });
     }
+  }
+  togglePasswordEye(): void {
+    this.showPass = !this.showPass;
   }
 }

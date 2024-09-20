@@ -12,11 +12,14 @@ import { CartService } from '../core/services/cart.service';
 import { WishlistService } from '../core/services/wishlist.service';
 import { ToastrService } from 'ngx-toastr';
 import { IProducts } from '../core/interfaces/iproducts';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from '../core/pipes/filter.pipe';
+import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [RouterLink, RouterModule],
+  imports: [RouterLink, RouterModule, FormsModule, FilterPipe, LowerCasePipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.css',
 })
@@ -27,6 +30,7 @@ export class ProductsComponent {
   private readonly _ToastrService = inject(ToastrService);
   clicked: { [key: string]: boolean } = {};
   productsList: IProducts[] = [];
+  searchTerm: string = '';
   ngOnInit(): void {
     this._ProductsService.getAllProducts().subscribe({
       next: (res) => {
@@ -44,6 +48,7 @@ export class ProductsComponent {
   addCart(id: string): void {
     this._CartService.addToCart(id).subscribe({
       next: (res) => {
+        this._CartService.cartCounter.next(res.numOfCartItems);
         console.log(res);
         this._ToastrService.success(res.message, 'Success');
       },
@@ -64,7 +69,7 @@ export class ProductsComponent {
     });
   }
   toggleWishlistIcon(event: MouseEvent, id: string): void {
-    const target = event.target as HTMLElement;
+    let target = event.target as HTMLElement;
     if (this.clicked[id]) {
       target.classList.remove('fa-solid');
       target.classList.add('fa-regular');

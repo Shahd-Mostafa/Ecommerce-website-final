@@ -1,6 +1,8 @@
-<div class="bg text-center py-5 my-5">
-  <i class="fa-solid fa-cart-shopping"></i>
-  <h1 class="fw-semibold pb-2 mt-3 mb-3">My Cart</h1>
+<div class="bg text-center pt-5 pb-4 my-5">
+  <div class="head mt-4">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <h1 class="fw-semibold pb-2 mt-3 mb-3">My Cart</h1>
+  </div>
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-9">
@@ -39,14 +41,14 @@
                     <img
                       [src]="item.product.imageCover"
                       [alt]="
-                        item.product.title.split(' ').slice(0, 2).join(' ')
+                        item.product.title.split(' ').slice(0, 3).join(' ')
                       "
                       class="img-fluid object-fit-cover rounded-3 w-100 h-auto"
                     />
                   </td>
                   <td class="name text-capitalize">
                     <p>
-                      {{ item.product.title.split(" ").slice(0, 2).join(" ") }}
+                      {{ item.product.title.split(" ").slice(0, 3).join(" ") }}
                     </p>
                   </td>
                   <td class="price">
@@ -89,7 +91,7 @@
       </div>
       <div class="col-lg-3">
         <div class="order-summary bg-body-tertiary w-100 p-3 rounded-3">
-          <h3 class="fw-semibold">Order Summary</h3>
+          <h3 class="fw-semibold">Order Checkout</h3>
           <div class="d-flex justify-content-end align-items-center">
             <input
               class="form-control p-2 position-relative border-0 coup"

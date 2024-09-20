@@ -15,11 +15,15 @@ export class CartComponent {
   private readonly _CartService = inject(CartService);
   cartDetails: ICart = {} as ICart;
   cart: AddCart = {} as AddCart;
+  cartOwnerId: string | null = '';
   ngOnInit(): void {
     this._CartService.getCartProducts().subscribe({
       next: (res) => {
+        console.log(res);
         console.log(res.data);
+        console.log(res.data.products);
         this.cartDetails = res.data;
+        localStorage.setItem('cartOwnerId', res.data.cartOwner);
         this.cart = res;
       },
       error: (error) => {
@@ -30,6 +34,7 @@ export class CartComponent {
   removeItem(id: string): void {
     this._CartService.deleteSpecificCartItem(id).subscribe({
       next: (res) => {
+        this._CartService.cartCounter.next(res.numOfCartItems);
         console.log(res);
         this.cartDetails = res.data;
         this.cart = res;

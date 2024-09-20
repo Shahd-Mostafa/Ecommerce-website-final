@@ -2,6 +2,7 @@ import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import {
   provideRouter,
   withHashLocation,
+  withInMemoryScrolling,
   withViewTransitions,
 } from '@angular/router';
 
@@ -19,7 +20,11 @@ import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes, withViewTransitions(), withHashLocation()),
+    provideRouter(
+      routes,
+      withViewTransitions(),
+      withInMemoryScrolling({ scrollPositionRestoration: 'top' })
+    ),
     provideClientHydration(),
     provideHttpClient(withFetch(), withInterceptors([loadingInterceptor])),
     importProvidersFrom(NgxSpinnerModule, BrowserAnimationsModule),

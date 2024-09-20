@@ -26,29 +26,36 @@ export class AuthService {
   }
   saveUserData(): void {
     if (localStorage.getItem('userToken') !== null) {
-      this.userData = jwtDecode(localStorage.getItem('userToken')!);
-      console.log(this.userData);
+      try {
+        this.userData = jwtDecode(localStorage.getItem('userToken')!);
+        console.log(this.userData);
+      } catch {
+        this._Router.navigate(['/sign-in']);
+        localStorage.clear();
+      }
     }
   }
   logOut(): void {
     localStorage.removeItem('userToken');
+    localStorage.removeItem('cartOwnerId');
+    localStorage.clear();
     this.userData = null;
     this._Router.navigate(['/sign-in']);
   }
 
-  setEmailVerify(data: object): Observable<any> {
+  setEmailVerify(data: any): Observable<any> {
     return this._HttpClient.post(
       `${enviroment.baseUrl}/api/v1/auth/forgotPasswords`,
       data
     );
   }
-  setCodeVerify(data: object): Observable<any> {
+  setCodeVerify(data: any): Observable<any> {
     return this._HttpClient.post(
       `${enviroment.baseUrl}/api/v1/auth/verifyResetCode`,
       data
     );
   }
-  setResetPass(data: object): Observable<any> {
+  setResetPass(data: any): Observable<any> {
     return this._HttpClient.put(
       `${enviroment.baseUrl}/api/v1/auth/resetPassword`,
       data

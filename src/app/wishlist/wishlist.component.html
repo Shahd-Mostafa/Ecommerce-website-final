@@ -1,6 +1,8 @@
-<div class="bg text-center py-5 my-5">
-  <i class="fa-regular fa-heart"></i>
-  <h1 class="fw-semibold pb-2 mt-3 mb-4">My Wishlist</h1>
+<div class="bg text-center pt-5 pb-4 my-5">
+  <div class="head mt-4">
+    <i class="fa-regular fa-heart"></i>
+    <h1 class="fw-semibold pb-2 mt-3 mb-4">My Wishlist</h1>
+  </div>
   <div class="container">
     <table
       class="uk-table uk-table-hover uk-table-divider bg-body-tertiary rounded-3"
@@ -28,12 +30,12 @@
           <td class="img-w">
             <img
               [src]="wish.imageCover"
-              [alt]="wish.title.split(' ').slice(0, 2).join(' ')"
+              [alt]="wish.title.split(' ').slice(0, 3).join(' ')"
               class="img-fluid object-fit-cover rounded-3"
             />
           </td>
           <td class="name text-capitalize">
-            {{ wish.title.split(" ").slice(0, 2).join(" ") }}
+            {{ wish.title.split(" ").slice(0, 3).join(" ") }}
           </td>
           <td class="price">{{ wish.price }} EGP</td>
           <td class="stock fw-medium">In Stock</td>

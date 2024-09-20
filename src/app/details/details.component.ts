@@ -20,6 +20,7 @@ export class DetailsComponent {
   private readonly _WishlistService = inject(WishlistService);
   private readonly _ToastrService = inject(ToastrService);
   detailsProduct: IProducts = {} as IProducts;
+  clicked: { [key: string]: boolean } = {};
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (t) => {
@@ -39,6 +40,7 @@ export class DetailsComponent {
   addCart(id: string): void {
     this._CartService.addToCart(id).subscribe({
       next: (res) => {
+        this._CartService.cartCounter.next(res.numOfCartItems);
         console.log(res);
         this._ToastrService.success(res.message, 'Success');
       },
@@ -57,5 +59,16 @@ export class DetailsComponent {
         console.error(err);
       },
     });
+  }
+  toggleWishlistIcon(event: MouseEvent, id: string): void {
+    let target = event.target as HTMLElement;
+    if (this.clicked[id]) {
+      target.classList.remove('fa-solid');
+      target.classList.add('fa-regular');
+    } else {
+      target.classList.remove('fa-regular');
+      target.classList.add('fa-solid');
+    }
+    this.clicked[id] = !this.clicked[id];
   }
 }

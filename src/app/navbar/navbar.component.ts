@@ -13,4 +13,21 @@ import { AddCart, ICart } from '../core/interfaces/icart';
 })
 export class NavbarComponent {
   readonly _AuthService = inject(AuthService);
+  private readonly _CartService = inject(CartService);
+  counter: number = 0;
+  getproducts(): void {
+    this._CartService.getCartProducts().subscribe({
+      next: (res) => {
+        this._CartService.cartCounter.next(res.numOfCartItems);
+      },
+    });
+  }
+  ngOnInit(): void {
+    this.getproducts();
+    this._CartService.cartCounter.subscribe({
+      next: (counter) => {
+        this.counter = counter;
+      },
+    });
+  }
 }

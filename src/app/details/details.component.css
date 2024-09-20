@@ -1,12 +1,23 @@
 .bg {
-  background-color: #dfdfde;
+  background-color: var(--background-color);
 }
 .add {
-  background-color: #87a054;
+  background-color: var(--main-color);
 }
 .add:hover {
-  background-color: rgb(73, 89, 41);
+  background-color: var(--hover-color);
 }
 .cat-name {
-  color: #87a054;
+  color: var(--main-color);
+}
+h2 {
+  font-family: var(--header-font);
+  color: var(--header-color);
+}
+.des {
+  color: grey;
+}
+.price > span,
+.price .avg {
+  color: var(--header-color);
 }

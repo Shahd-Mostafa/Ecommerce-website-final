@@ -1,16 +1,13 @@
 .bg {
-  background-color: #dfdfde;
+  background-color: var(--background-color);
   min-height: 100vh;
   width: 100%;
 }
 h2,
 h3 {
-  /* font-family: "Raleway", sans-serif; */
-  color: #2e261a;
+  font-family: var(--header-font);
+  color: var(--header-color);
 }
-/* img {
-  object-position: center;
-} */
 .card {
   height: 400px;
   perspective: 800px;
@@ -18,8 +15,8 @@ h3 {
   background-color: transparent;
 }
 .text {
-  color: rgb(135, 160, 84);
-  /* font-family: "Raleway", sans-serif; */
+  color: var(--main-color);
+  font-family: var(--header-font);
 }
 .card-inner {
   transition: all 0.3s ease-in-out;
@@ -38,6 +35,6 @@ h3 {
   transform: rotateY(180deg);
 }
 .sub-g p {
-  color: #87a054;
+  color: var(--main-color);
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 }

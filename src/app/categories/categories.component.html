@@ -30,12 +30,12 @@
     </div>
   </div>
   @if(selectedCategory){
-  <div class="sub-g pt-5 mt-2">
-    <h3 class="h2 pb-2 fw-semibold">
+  <div class="sub-g pt-3 pb-4">
+    <h3 class="h2 pb-3 fw-semibold">
       <span>{{ selectedCategory.name }}</span> Subcategories
     </h3>
     <div class="container">
-      <div class="row">
+      <div class="row pb-3">
         @for(subcategory of subcategoriesList; track subcategory._id) {
         <div class="col-md-4">
           <p class="p-4 bg-white text-center rounded-3 fw-medium">

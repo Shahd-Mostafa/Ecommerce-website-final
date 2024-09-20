@@ -1,9 +1,9 @@
-/* .navbar-brand {
-  font-family: "Raleway", sans-serif;
-} */
+.navbar-brand {
+  font-family: var(--header-font) !important;
+  color: var(--header-color) !important;
+}
 .nav-link {
-  /* font-family: "Raleway", sans-serif; */
-  color: black;
+  color: var(--header-color);
   transition: all 0.3s ease;
   font-weight: 500;
 }

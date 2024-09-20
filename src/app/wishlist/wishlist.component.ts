@@ -3,11 +3,12 @@ import { WishlistService } from '../core/services/wishlist.service';
 import { CartService } from '../core/services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { IWishlist } from '../core/interfaces/iwishlist';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [],
+  imports: [FooterComponent],
   templateUrl: './wishlist.component.html',
   styleUrl: './wishlist.component.css',
 })
@@ -42,6 +43,7 @@ export class WishlistComponent {
   addCart(id: string): void {
     this._CartService.addToCart(id).subscribe({
       next: (res) => {
+        this._CartService.cartCounter.next(res.numOfCartItems);
         console.log(res);
         this._ToastrService.success(res.message, 'Success');
       },

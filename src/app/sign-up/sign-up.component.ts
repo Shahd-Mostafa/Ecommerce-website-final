@@ -9,17 +9,20 @@ import {
 import { AuthService } from '../core/services/auth.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NgClass],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css',
 })
 export class SignUpComponent {
   private readonly _AuthService = inject(AuthService);
   private readonly _Router = inject(Router);
+  showPass1?: boolean;
+  showPass2?: boolean;
   msgError: string = '';
   isLoading: boolean = false;
   SignUpForm: FormGroup = new FormGroup(
@@ -68,5 +71,11 @@ export class SignUpComponent {
     } else {
       return { mismatch: true };
     }
+  }
+  togglePasswordEye(): void {
+    this.showPass1 = !this.showPass1;
+  }
+  togglePasswordEye2(): void {
+    this.showPass2 = !this.showPass2;
   }
 }

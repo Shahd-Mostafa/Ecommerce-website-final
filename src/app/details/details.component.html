@@ -1,4 +1,4 @@
-<div class="bg d-flex justify-content-center align-items-center vh-100">
+<div class="bg d-flex justify-content-center align-items-center vh-100 pt-5">
   <div class="container">
     <div class="row bg-body-tertiary rounded-3 p-4 align-items-center">
       <div class="col-md-4 p-0">
@@ -16,7 +16,7 @@
                   <img
                     [src]="detailsProduct.imageCover"
                     [alt]="
-                      detailsProduct.title.split(' ').slice(0, 2).join(' ')
+                      detailsProduct.title.split(' ').slice(0, 3).join(' ')
                     "
                     uk-cover
                     class="rounded-3 object-fit-cover"
@@ -26,9 +26,21 @@
               <div class="uk-width-1">
                 <div class="uk-cover-container rounded-3">
                   <img
-                    [src]="detailsProduct.images[0]"
+                    [src]="detailsProduct.images[1]"
                     [alt]="
-                      detailsProduct.title.split(' ').slice(0, 2).join(' ')
+                      detailsProduct.title.split(' ').slice(0, 3).join(' ')
+                    "
+                    uk-cover
+                    class="rounded-3 object-fit-cover w-100"
+                  />
+                </div>
+              </div>
+              <div class="uk-width-1">
+                <div class="uk-cover-container rounded-3">
+                  <img
+                    [src]="detailsProduct.images[2]"
+                    [alt]="
+                      detailsProduct.title.split(' ').slice(0, 3).join(' ')
                     "
                     uk-cover
                     class="rounded-3 object-fit-cover w-100"
@@ -46,9 +58,9 @@
         <div class="prod-details p-2">
           <p class="cat-name m-0 p-0">{{ detailsProduct.category.name }}</p>
           <h2 class="prod-name text-capitalize mb-1 mt-0">
-            {{ detailsProduct.title.split(" ").slice(0, 2).join(" ") }}
+            {{ detailsProduct.title.split(" ").slice(0, 3).join(" ") }}
           </h2>
-          <div class="m-0 p-0">{{ detailsProduct.description }}.</div>
+          <div class="m-0 p-0 des">{{ detailsProduct.description }}.</div>
           <div
             class="price d-flex justify-content-between align-items-center py-4"
           >
@@ -56,7 +68,7 @@
             <div
               class="rating d-flex align-items-center justify-content-between"
             >
-              <div class="pe-2 fw-semibold">
+              <div class="pe-2 fw-semibold avg">
                 {{ detailsProduct.ratingsAverage }}
               </div>
               <span
@@ -75,7 +87,10 @@
             </button>
             <button
               class="btn border-0 p-0"
-              (click)="addWishlist(detailsProduct.id)"
+              (click)="
+                addWishlist(detailsProduct.id);
+                toggleWishlistIcon($event, detailsProduct.id)
+              "
             >
               <i #myElement class="fa-regular fa-heart fa-xl"></i>
             </button>

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { enviroment } from '../environment/environment';
 
 @Injectable({
@@ -18,9 +19,24 @@ export class OrdersService {
       }
     );
   }
-  getUserOrders(id: string) {
+  // getUserOrders(id: string | null): Observable<any> {
+  //   return this._HttpClient.get(
+  //     `${enviroment.baseUrl}/api/v1/orders/user/${id}`
+  //   );
+  // }
+  getUserOrders(id: string | null): Observable<any> {
     return this._HttpClient.get(
       `${enviroment.baseUrl}/api/v1/orders/user/${id}`
     );
+    // .pipe(
+    //   map((response) => {
+    //     const orders = response.orders;
+    //     if (orders && orders.length > 0) {
+    //       return orders[orders.length - 1];
+    //     } else {
+    //       return null;
+    //     }
+    //   })
+    // );
   }
 }

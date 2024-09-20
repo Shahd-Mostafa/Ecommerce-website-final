@@ -1,24 +1,55 @@
-.bg {
-  background-color: rgb(135, 160, 84);
+::placeholder {
+  font-size: 0.875rem;
+  padding-left: 7px;
 }
-h2 {
-  color: #87a054;
-  font-family: "Raleway", sans-serif;
+h1,
+h3,
+.order-title {
+  font-family: var(--header-font);
+  color: var(--main-color);
 }
-input,
-textarea {
-  border: 1px solid #87a054 !important;
+.fa-clipboard-check {
+  font-size: 60px;
+  color: var(--main-color);
 }
-input:focus,
-textarea:focus {
-  box-shadow: 0 0 0 0.25rem rgb(135, 160, 84, 0.25);
+td {
+  color: var(--header-color);
+  vertical-align: middle !important;
 }
-button {
-  background-color: #87a054;
-  border: none;
-  color: white !important;
+.img-w {
+  width: 200px;
+  max-width: 100%;
+  height: auto;
 }
-button:hover {
-  background-color: #495a28 !important;
-  color: white !important;
+.cat-name {
+  color: var(--main-color);
+}
+h2,
+h5 {
+  font-family: var(--minor-font);
+}
+h2,
+p {
+  color: var(--header-color);
+}
+.id-num {
+  color: var(--header-color);
+  font-family: var(--minor-font);
+}
+.shipping-address h4,
+.payment h4,
+.taxes-and-fees h4 {
+  font-family: var(--header-font);
+  color: var(--main-color);
+}
+.t {
+  color: var(--header-color);
+}
+.total h4 {
+  color: var(--main-color);
+  font-family: var(--header-font);
+}
+.prod-name {
+  font-family: var(--minor-font);
+  color: var(--header-color);
 }

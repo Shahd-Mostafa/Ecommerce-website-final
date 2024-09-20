@@ -33,15 +33,24 @@
               </div>
               }
             </div>
-            <div class="mb-3">
+            <div class="mb-3 position-relative">
               <label for="password" class="pb-1">Password</label>
               <input
-                type="password"
+                [type]="showPass ? 'text' : 'password'"
                 class="form-control"
                 id="password"
                 name="LoginPassword"
                 formControlName="password"
               />
+              <span class="password-toggle-icon" (click)="togglePasswordEye()"
+                ><i
+                  class="bi"
+                  [ngClass]="{
+                    'bi-eye-slash-fill': !showPass,
+                    'bi-eye-fill': showPass
+                  }"
+                ></i
+              ></span>
               @if(SignInForm.get('password')?.errors &&
               SignInForm.get('password')?.touched) {
               <div class="warnings">

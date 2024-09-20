@@ -37,8 +37,9 @@ export class OrdersComponent {
       next: (res) => {
         console.log(res);
         if (res.status === 'success') {
-          window.open(res.session.url, '_self');
           this._Router.navigate(['/loading']);
+          window.location.href = res.session.url;
+          // this._Router.navigate(res.session.success_url);
         }
       },
       error: (err) => {
