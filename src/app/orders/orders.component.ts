@@ -40,7 +40,7 @@ export class OrdersComponent {
         if (res.status === 'success') {
           // alert(res.session.success_url);
           // alert(cleanUrl);
-          location.href = res.session.url;
+          window.location.href = res.session.url;
           console.log(res.session.url);
           console.log(res.session.success_url);
           console.log('loaded successfully');
