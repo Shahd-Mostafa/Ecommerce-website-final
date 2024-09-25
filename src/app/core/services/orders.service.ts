@@ -19,24 +19,9 @@ export class OrdersService {
       }
     );
   }
-  // getUserOrders(id: string | null): Observable<any> {
-  //   return this._HttpClient.get(
-  //     `${enviroment.baseUrl}/api/v1/orders/user/${id}`
-  //   );
-  // }
   getUserOrders(id: string | null): Observable<any> {
     return this._HttpClient.get(
       `${enviroment.baseUrl}/api/v1/orders/user/${id}`
     );
-    // .pipe(
-    //   map((response) => {
-    //     const orders = response.orders;
-    //     if (orders && orders.length > 0) {
-    //       return orders[orders.length - 1];
-    //     } else {
-    //       return null;
-    //     }
-    //   })
-    // );
   }
 }

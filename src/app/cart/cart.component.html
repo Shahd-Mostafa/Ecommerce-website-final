@@ -105,22 +105,22 @@
             </button>
           </div>
           <div
-            class="shipping d-flex justify-content-between align-items-center mt-4 text-body-tertiary"
+            class="shipping d-flex justify-content-between align-items-center mt-4"
           >
-            <span class="fs-6">Shipping Fee</span>
-            <span class="free fw-semibold fs-6">Free</span>
+            <span class="fs-6 sh">Shipping Fee</span>
+            <span class="text-body-tertiary fs-6">Free</span>
           </div>
           <div
             class="total border-top d-flex justify-content-between align-items-center align-middle mt-2 pt-1"
           >
-            <h4 class="mb-0 fw-bold d-flex align-items-center">Total</h4>
-            <span class="fw-bold">{{
+            <h4 class="mb-0 fw-semibold d-flex align-items-center">Total</h4>
+            <span class="fw-medium">{{
               cartDetails.totalCartPrice | currency : "EGP"
             }}</span>
           </div>
           <button
             class="btn w-100 checkout text-white mt-4"
-            [routerLink]="['/orders', cart.cartId]"
+            [routerLink]="['/orders', cartDetails._id]"
             [disabled]="!(cartDetails.products && cartDetails.products.length)"
           >
             Checkout

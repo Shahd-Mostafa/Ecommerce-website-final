@@ -7,10 +7,13 @@ h3 {
   font-family: var(--header-font);
   color: var(--main-color);
 }
-h4,
 h5 {
   color: rgb(64, 69, 83);
   font-family: var(--minor-font);
+}
+h4 {
+  font-family: var(--header-font);
+  color: var(--main-color);
 }
 table {
   background-color: var(--background-color) !important;
@@ -60,11 +63,11 @@ td {
   outline: none;
   box-shadow: none !important;
 }
-.free {
-  color: var(--main-color);
+.sh {
+  color: var(--header-color);
 }
 .total span {
-  color: rgb(64, 69, 83);
+  color: var(--header-color);
 }
 .checkout {
   background-color: var(--main-color);

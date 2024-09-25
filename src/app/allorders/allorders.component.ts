@@ -22,6 +22,7 @@ export class AllordersComponent {
     this._OrdersService.getUserOrders(id).subscribe({
       next: (res) => {
         console.log(res);
+        console.log('loaded successfully');
         console.log(res[res.length - 1]);
         this.order = res[res.length - 1];
         for (var i = 0; i < this.order.cartItems.length; i++) {
@@ -30,6 +31,7 @@ export class AllordersComponent {
       },
       error: (error) => {
         console.error(error);
+        console.log('loaded unsuccessfully');
       },
     });
   }

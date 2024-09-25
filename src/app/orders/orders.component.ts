@@ -36,10 +36,14 @@ export class OrdersComponent {
     this._OrdersService.checkout(this.cartId, this.orders.value).subscribe({
       next: (res) => {
         console.log(res);
+        let cleanUrl = res.session.success_url.replace(/([^:]\/)\/+/g, '$1');
         if (res.status === 'success') {
-          this._Router.navigate(['/loading']);
-          window.location.href = res.session.url;
-          // this._Router.navigate(res.session.success_url);
+          alert(res.session.success_url);
+          alert(cleanUrl);
+          location.href = res.session.url;
+          console.log(res.session.url);
+          console.log(res.session.success_url);
+          console.log('loaded successfully');
         }
       },
       error: (err) => {

@@ -69,7 +69,7 @@
             >
               <p class="my-1">City</p>
               <p class="my-1 text-body-tertiary">
-                {{ order.shippingAddress.city }}
+                {{ order.shippingAddress?.city }}
               </p>
             </div>
             <div
@@ -77,7 +77,7 @@
             >
               <p class="my-1">Details</p>
               <p class="my-1 text-body-tertiary">
-                {{ order.shippingAddress.details }}
+                {{ order.shippingAddress?.details }}
               </p>
             </div>
             <div
@@ -85,7 +85,7 @@
             >
               <p class="my-1">Phone</p>
               <p class="my-1 text-body-tertiary">
-                {{ order.shippingAddress.phone }}
+                {{ order.shippingAddress?.phone }}
               </p>
             </div>
           </div>
