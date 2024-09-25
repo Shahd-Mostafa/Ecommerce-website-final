@@ -36,10 +36,10 @@ export class OrdersComponent {
     this._OrdersService.checkout(this.cartId, this.orders.value).subscribe({
       next: (res) => {
         console.log(res);
-        let cleanUrl = res.session.success_url.replace(/([^:]\/)\/+/g, '$1');
+        // let cleanUrl = res.session.success_url.replace(/([^:]\/)\/+/g, '$1');
         if (res.status === 'success') {
-          alert(res.session.success_url);
-          alert(cleanUrl);
+          // alert(res.session.success_url);
+          // alert(cleanUrl);
           location.href = res.session.url;
           console.log(res.session.url);
           console.log(res.session.success_url);
